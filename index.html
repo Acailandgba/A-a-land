@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Açaí Land</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            background: purple;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Açaí Land</h1>
+    <div class="container">
+        <h2>Escolha o tamanho</h2>
+        <select id="tamanho">
+            <option value="pequeno">Pequeno</option>
+            <option value="medio">Médio</option>
+            <option value="grande">Grande</option>
+        </select><h2>Escolha os complementos</h2>
+    <label><input type="checkbox" value="granola"> Granola</label><br>
+    <label><input type="checkbox" value="banana"> Banana</label><br>
+    <label><input type="checkbox" value="morango"> Morango</label><br>
+    <label><input type="checkbox" value="leite_condensado"> Leite Condensado</label><br>
+    
+    <h2>Forma de Pagamento</h2>
+    <select id="pagamento">
+        <option value="pix">PIX</option>
+        <option value="cartao">Cartão de Crédito/Débito</option>
+        <option value="dinheiro">Dinheiro (na entrega)</option>
+    </select>
+    
+    <h2>Endereço de Entrega</h2>
+    <input type="text" id="endereco" placeholder="Digite seu endereço"><br><br>
+    
+    <button class="button" onclick="finalizarPedido()">Finalizar Pedido</button>
+</div>
+
+<script>
+    function finalizarPedido() {
+        let tamanho = document.getElementById("tamanho").value;
+        let complementos = [];
+        document.querySelectorAll("input[type=checkbox]:checked").forEach(el => complementos.push(el.value));
+        let pagamento = document.getElementById("pagamento").value;
+        let endereco = document.getElementById("endereco").value;
+        
+        alert(`Pedido:\nTamanho: ${tamanho}\nComplementos: ${complementos.join(", ")}\nForma de Pagamento: ${pagamento}\nEndereço: ${endereco}`);
+    }
+</script>
+
+</body>
+</html>
